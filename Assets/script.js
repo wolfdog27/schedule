@@ -38,10 +38,23 @@ for (var i=0; i<9; i++) {
     }
 }
 
-var nineInfo = $(this).siblings("#09").val()
-if (nineText !== undefined) {
-    localStorage.setItem("nineText", nineInfo)
+
+$(".btn").click(function() {
+    text = $(this).siblings(".input").val();
+    hour = $(this).siblings(".hour").text();
+    localStorage.setItem(hour, JSON.stringify(text));
+
+    renderText ();
+})
+
+function renderText () {
+    var text09 = JSON.parse(localStorage.getItem ("09:00AM"));
+    $("#09").val("");
+    $("09").val(text09);
 }
+
+
+// or????
 
 var nineText = localStorage.getItem("nineText")
 $("#09").text(nineText);
