@@ -37,75 +37,79 @@ for (var i=0; i<9; i++) {
         $(hoursEl[i].addClass("future"))
     }
 }
-
-
-$(".btn").click(function() {
-    text = $(this).siblings(".input").val();
-    hour = $(this).siblings(".hour").text();
-    localStorage.setItem(hour, JSON.stringify(text));
-
-    renderText ();
+// var myInput = $(".input1")
+// var myButton = $(".button1")
+// var myDiv = $(".myDiv")
+// var myArr = []
+var myArr = []
+var fromlocalStorage= JSON.parse(localStorage.getItem("inputValue"))
+if(fromlocalStorage !== null){
+    console.log(myArr);
+    for(var j=0; j<fromlocalStorage.length; j++){
+        myArr.push(fromlocalStorage[j])
+    }
+    for(var i=0; i<myArr.length; i++){
+        var myH1Tag = $("<h1>")
+        myH1Tag.text(myArr[i])
+        textBox09.append(myH1Tag)
+    }
+}
+Btn09.click(function(){
+    var textFromInput09 = textBox09.val()
+    hoursEl.push(textFromInput09)
+     var myH1Tag = $("<h1>")
+        myH1Tag.text(textFromInput09)  
+        textBox09.append(myH1Tag)
+    localStorage.setItem("inputValue", JSON.stringify(myArr))
 })
 
-function renderText () {
-    var text09 = JSON.parse(localStorage.getItem ("09:00AM"));
-    $("#09").val("");
-    $("09").val(text09);
-}
 
 
-// or????
+// // Clearning
+// $(Btn09).click(function() {
+//     textBox09.val("")
+//     localStorage.setItem("nineText", "")
+// }); 
 
-var nineText = localStorage.getItem("nineText")
-$("#09").text(nineText);
+// $(Btn10).click(function() {
+//     textBox10.val("")
+//     localStorage.setItem("tenText", "")
+// });
 
+// $(Btn11).click(function() {
+//     textBox11.val("")
+//     localStorage.setItem("elevenText", "")
+// });
 
+// $(Btn12).click(function() {
+//     textBox12.val("")
+//     localStorage.setItem("twelveText", "")
+// });
 
-// Clearning
-$(Btn09).click(function() {
-    textBox09.val("")
-    localStorage.setItem("nineText", "")
-}); 
+// $(Btn13).click(function() {
+//     textBox13.val("")
+//     localStorage.setItem("oneText", "")
+// });
 
-$(Btn10).click(function() {
-    textBox10.val("")
-    localStorage.setItem("tenText", "")
-});
+// $(Btn14).click(function() {
+//     textBox14.val("")
+//     localStorage.setItem("twoText", "")
+// });
 
-$(Btn11).click(function() {
-    textBox11.val("")
-    localStorage.setItem("elevenText", "")
-});
+// $(Btn15).click(function() {
+//     textBox15.val("")
+//     localStorage.setItem("threeText", "")
+// });
 
-$(Btn12).click(function() {
-    textBox12.val("")
-    localStorage.setItem("twelveText", "")
-});
+// $(Btn16).click(function() {
+//     textBox16.val("")
+//     localStorage.setItem("fourText", "")
+// });
 
-$(Btn13).click(function() {
-    textBox13.val("")
-    localStorage.setItem("oneText", "")
-});
-
-$(Btn14).click(function() {
-    textBox14.val("")
-    localStorage.setItem("twoText", "")
-});
-
-$(Btn15).click(function() {
-    textBox15.val("")
-    localStorage.setItem("threeText", "")
-});
-
-$(Btn16).click(function() {
-    textBox16.val("")
-    localStorage.setItem("fourText", "")
-});
-
-$(Btn17).click(function() {
-    textBox17.val("")
-    localStorage.setItem("fiveText", "")
-});
+// $(Btn17).click(function() {
+//     textBox17.val("")
+//     localStorage.setItem("fiveText", "")
+// });
 
 
 
